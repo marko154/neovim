@@ -28,7 +28,7 @@ local plugins = {
       return require "custom.configs.null-ls"
     end,
   },
-  { "windwp/nvim-ts-autotag" }   ,
+  { "windwp/nvim-ts-autotag" },
   { "Shatur/neovim-session-manager",
     -- no idea
   }
