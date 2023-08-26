@@ -1,4 +1,7 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
+local on_attach = function(client)
+  require("plugins.configs.lspconfig").on_attach(client)
+  -- require("illuminate").on_attach(client)
+end
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
@@ -15,6 +18,18 @@ lspconfig.gopls.setup {
     gopls = {
     }
   }
+}
+
+lspconfig["clangd"].setup {
+  on_attach = function(client)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client)
+  end,
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
 }
 
 

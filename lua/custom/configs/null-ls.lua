@@ -10,6 +10,7 @@ local opts = {
     formatting.goimports,
     formatting.golines,
     formatting.stylua,
+    formatting.clang_format
   },
 
   on_attach = function(client, bufnr)

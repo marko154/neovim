@@ -10,7 +10,8 @@ local plugins = {
         "goimports",
         "golines",
         "prettier",
-        "eslint_d"
+        "eslint_d",
+        "clang-format",
       }
     }
   },
@@ -30,7 +31,13 @@ local plugins = {
     end,
   },
   { "windwp/nvim-ts-autotag" },
-  { "Shatur/neovim-session-manager",
+  {
+    "rmagatti/auto-session",
+    event = "VeryLazy",
+    opts = {
+      log_level = "error",
+      auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+    }
     -- no idea
   },
   {
@@ -42,6 +49,24 @@ local plugins = {
         -- Configuration here, or leave empty to use defaults
       })
     end
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
+    "mg979/vim-visual-multi",
+    event = "VeryLazy"
+  },
+  {
+    "RRethy/vim-illuminate",
+    event = "VeryLazy",
+    dependencies = { "neovim/nvim-lspconfig", },
+  },
+  {
+    "axelvc/template-string.nvim",
+    ft = { 'html', 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'python' },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   }
 }
 
